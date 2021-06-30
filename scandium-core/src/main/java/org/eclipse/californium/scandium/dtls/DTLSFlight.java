@@ -68,7 +68,7 @@ import org.slf4j.LoggerFactory;
  * Scandium offers also the possibility to stop the retransmission with
  * receiving the first response message instead of the complete flight. That is
  * currently configurable using
- * {@link DtlsConnectorConfig#isEarlyStopRetransmission()}. Only for the flight
+ * {@link DtlsConnectorConfig#useEarlyStopRetransmission()}. Only for the flight
  * before the very last flight of a handshake, it must be ensured, that the
  * retransmission is only stopped, after that very last flight is received
  * completely. Though the very last flight in DTLS 1.2 is always a flight with
@@ -635,7 +635,7 @@ public class DTLSFlight {
 
 	/**
 	 * Signal, that the first handshake message of the response is received. If
-	 * {@link DtlsConnectorConfig#isEarlyStopRetransmission()} is configured,
+	 * {@link DtlsConnectorConfig#useEarlyStopRetransmission()} is configured,
 	 * this stops sending retransmissions but keep a scheduled timeout task.
 	 */
 	public void setResponseStarted() {
